@@ -1,0 +1,137 @@
+@media screen and (max-width: 768px) {
+.burger-menu {
+    display: flex; /* Показываем бургер на маленьких экранах */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: brown;
+    transition: all 0.3s;
+}
+
+.nav-links {
+    display: none; /* Скрываем меню */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+.nav-links ul {
+    display: flex; /* Делаем список flex-контейнером */
+    flex-direction: column; /* Располагаем элементы в колонку */
+    gap: 0;
+}
+
+.nav-links li {
+    padding: 10px 20px;
+    /* text-align: center; */
+}
+
+/* Контейнер */
+.container {
+    padding: 40px 20px;
+    gap: 2rem;
+}
+
+.courses {
+    gap: 1rem;
+}
+
+.course {
+    width: 100%; /* Растягиваем элементы */
+    /* flex-direction: column; */
+    align-items: center;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    width: 94.8%; /* Растягиваем футер */
+}}
+
+
+@media screen and (max-width: 426px) {
+    /* Стиль для контейнера */
+    .container {
+        padding: 20px;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Уменьшаем размер заголовка */
+    }
+
+    /* Курсы */
+    .courses {
+        gap: 1rem;
+    }
+    
+    .course {
+        width: 100%; /* Растягиваем элементы */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Фото */
+    .album {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .img {
+        width: 100%; /* Ограничиваем изображения */
+        max-width: 350px; /* Ограничиваем максимальный размер */
+        height: auto;
+    }
+
+    /* Блоки для студентов */
+    .benifit {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .benifits {
+        display: block;
+        gap: 1rem;
+    }
+
+    .box {
+        width: 100%; /* Растягиваем блоки на всю ширину */
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* Футер */
+    .footer {
+        padding: 20px !important; /* Меньше отступов в футере */
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    /* Уменьшаем шрифт для текста в футере */
+    .footer table td {
+        font-size: 8px !important;
+    }
+
+}

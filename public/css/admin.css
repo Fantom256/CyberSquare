@@ -1,0 +1,32 @@
+/* Основные стили админки */
+.admin-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#enrollments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#enrollments-table th, #enrollments-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#enrollments-table th {
+  background-color: #f2f2f2;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}

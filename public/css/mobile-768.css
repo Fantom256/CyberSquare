@@ -1,0 +1,123 @@
+/* Обнуляем стили и устанавливаем базовые параметры */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+/* Бургер меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: brown;
+    transition: all 0.3s;
+}
+
+/* Стиль меню */
+.nav-links {
+    display: flex;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+.nav-links li {
+    padding: 5px;
+}
+
+/* Основные стили адаптации для 768px и ниже */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links li {
+        padding: 10px 20px;
+    }
+
+    /* Растягиваем контейнеры */
+    .container, .album, .benifit, .footer {
+        width: 100%;
+    }
+
+    /* Адаптация альбома с изображениями */
+    .album {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .album .img {
+        width: 100%; 
+        max-width: 300px; 
+        height: auto; 
+        border-radius: 10px;
+    }
+
+    /* Блоки на мобильных устройствах */
+    .intro, .benifits {
+        flex-direction: column;
+    }
+
+    .benifits{
+        display: grid;
+    }
+
+    .footer {
+        max-width: 100%;
+    }
+
+    .footer table {
+        font-size: 8px;
+    }
+
+    .box {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}

@@ -1,0 +1,164 @@
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica;
+}
+
+/* Header */
+.first-header{
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 40px;
+    box-shadow: 0 1px 8px #ddd;
+    height: 60x;
+}
+
+#nav-title {
+    margin-right: auto;
+    font-size: 1.5em;
+}
+
+header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #555;
+    transition: all 0.3s ease 0s;
+}
+
+/* header */
+
+/* introduction */
+
+.container{
+    background-color: rgb(234, 90, 98);
+}
+
+.intro {
+    display: grid;
+    
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    gap: 20px; /* Отступ между колонками */
+    margin: 0 auto; /* Центрируем блок на странице */
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
+    padding: 50px; /* Внутренние отступы */
+    background-color: rgb(234, 90, 98); /* Фон */
+    border-radius: 10px; /* Скругленные углы */
+}
+
+.intro1 {
+    color: white;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* .image{
+    padding-bottom: 50px;
+} */
+
+/* introduction */
+
+/* photo album */
+
+.album{
+    display: flex;
+    gap: 50px;
+    margin: 100px;
+   
+}
+
+.img{
+    border-radius: 10px;
+    height:320px ;
+    width: 400px;
+}
+/* photo album */
+
+
+/* benifits for students */
+.benifit{
+    padding-top: 100px;
+    padding-left:100px ;
+    padding-right:100px ;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.benifits{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.box{
+    display: flex;
+    width: 150px;
+    height: 130px;
+    box-shadow: 8px 5px 8px rgba(128, 128, 128, 0.599);
+    border-radius: 8px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 1.3s;
+}
+
+
+
+
+.box:hover{
+    transform: scale(0.9);
+    
+    
+}
+
+
+/* course table  */
+.course{
+    padding-top: 100px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.courses{
+    border: 5px black !important;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    border-radius: 9px;
+    background-color: white;
+}
+
+/* course table */
+
+
+/* footer */
+.footer{
+    width: 89.4%;
+    padding: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: black;
+}
+
+/* footer */
+

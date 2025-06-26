@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSquare</title>
+    <link rel="stylesheet" href="/css/course.css" />
+    <link rel="stylesheet" href="/css/course-768.css" media="screen and (max-width: 768px)"> <!-- Адаптация для 768px -->
+    <link rel="stylesheet" href="/css/course-425.css" media="screen and (max-width: 425px)"> <!-- Адаптация для 768px -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
+
+  <body>
+    <!-------------------------------navbar----------------------------------------->
+    <header class="first-header">
+      <h4>CyberSquare</h4>
+      <h1 id="nav-title"><a href="#"><img src="logo.jpg" alt="" height="50"></a></h1>
+      <div class="burger-menu" id="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <nav class="nav-links" id="nav-links">
+          <ul>
+              <li><a href="home.html" style="color: brown;"><b>Главная</b></a></li>
+              <li><a href="about.html" style="color: brown;"><b>О нас</b></a></li>
+              <li><a href="course.html" style="color: brown;"><b>Курсы</b></a></li>
+          </ul>
+      </nav>
+  </header>
+    <!-------------------------------navbar----------------------------------------->
+
+    <div class="container">
+    <div>
+        <h1>Наши курсы</h1>
+    </div>
+    <div class="courses" id="courses-container">
+        <!-- Здесь будут динамически загруженные курсы -->
+    </div>
+    
+</div>   
+  
+  <!---footer--->
+   <div class="footer">
+    <table bgcolor="black" width="100%" cellpadding="10" cellspacing="30">
+      <tr>
+        <td>
+          <!-- <img src="logo.jpg" height="50px" alt="CyberSquare Logo" /> -->
+        </td>
+        <td>
+          <font color="white">Адрес</font>
+        </td>
+        <td>
+          <font color="white">О нас</font>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="3">
+          <font color="white">
+            Cyber square это иновационная платформа, которая учит<br>
+            программированию и  совершенствует навыки 21 века.<br>
+            Это также отличный способ учиться математическим, техническим<br>
+            и научным навыкам решения проблем.<br>
+          </font>
+        </td>
+        <td>
+          <font color="white">
+            <b>Главный офисс -RU</b><br>
+                    Ростов-на-Дону<br>
+          </font>
+        </td>
+        <td>
+          <font color="white">+8-800-555-35-35</font>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <font color="white">mail:contact@cybersquare.ru</font>
+        </td>
+        <td>
+          <font color="white">+971-508881947</font>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    const burger = document.querySelector('.burger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+</script>
+<script>
+  // Загрузка курсов с сервера
+  document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('/api/courses');
+    const courses = await response.json();
+    
+    const container = document.querySelector('.courses');
+    container.innerHTML = '';
+    
+    courses.forEach(course => {
+      const courseDiv = document.createElement('div');
+      courseDiv.className = 'course';
+      courseDiv.innerHTML = `
+        <img src="${course.image_url}" height="200px" width="358px" alt="${course.title}">
+        <div class="details">
+          <h3>${course.title}</h3>
+          <p>${course.description}</p>
+          <span><b>Цена:</b> ${course.price} руб.</span>
+          <div class="enroll-form">
+            <button class="enroll-btn" data-course-id="${course.course_id}">Записаться</button>
+          </div>
+        </div>
+      `;
+      container.appendChild(courseDiv);
+    });
+
+    // Добавляем обработчики событий для новых кнопок
+    document.querySelectorAll('.enroll-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const courseId = e.target.getAttribute('data-course-id');
+        document.getElementById('modal-course-id').value = courseId;
+        document.getElementById('enroll-modal').style.display = 'block';
+      });
+    });
+  } catch (error) {
+    console.error('Ошибка загрузки курсов:', error);
+    container.innerHTML = '<p class="error">Не удалось загрузить курсы. Пожалуйста, попробуйте позже.</p>';
+  }
+});
+</script>
+<script>// Вешаем обработчики после полной загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+  // Обработчик для кнопок "Записаться" (делегирование событий)
+  document.addEventListener('click', function(e) {
+    // Открытие модального окна
+    if (e.target.classList.contains('enroll-btn')) {
+      const courseId = e.target.getAttribute('data-course-id');
+      document.getElementById('modal-course-id').value = courseId;
+      document.getElementById('enroll-modal').style.display = 'block';
+    }
+    
+    // Закрытие модального окна по крестику
+    if (e.target.classList.contains('close')) {
+      document.getElementById('enroll-modal').style.display = 'none';
+    }
+  });
+
+  // Закрытие по клику вне окна
+  window.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('enroll-modal')) {
+      document.getElementById('enroll-modal').style.display = 'none';
+    }
+  });
+
+  // Обработка формы
+async function submitForm(e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  
+  try {
+    // Подготовка данных
+    const formData = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      course_id: parseInt(form.course_id.value) // Важно: число, а не строка
+    };
+
+    // Валидация email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      throw new Error('Введите корректный email');
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправка...';
+
+    // Отправка
+    const response = await fetch('http://localhost:3000/api/enroll', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.error || `HTTP error! status: ${response.status}`);
+    }
+
+    // Успех
+    form.reset();
+    document.getElementById('enroll-modal').style.display = 'none';
+    alert('Успешно! Ваша заявка №' + (data.consultation_id || ''));
+    
+  } catch (error) {
+    console.error('Form submit error:', error);
+    alert(`Ошибка: ${error.message}`);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+}
+
+document.getElementById('enroll-form').addEventListener('submit', submitForm);
+
+// Функция для показа уведомлений
+function showNotification(message, type) {
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.classList.add('fade-out');
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+});</script>
+<div id="enroll-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Запись на курс</h3>
+    <form id="enroll-form">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="hidden" name="course_id" id="modal-course-id">
+      <button type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

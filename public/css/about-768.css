@@ -1,0 +1,346 @@
+/* Общие стили для всего контента */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Общие стили для фона */
+body {
+    background-color: #f4f4f4;
+}
+
+/* Бургер меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: brown;
+    transition: all 0.3s;
+}
+
+/* Базовые стили для навигации */
+.nav-links {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
+}
+
+/* Адаптация для экрана до 768px */
+@media screen and (max-width: 768px) {
+
+    /* Бургер меню */
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links li {
+        padding: 10px 20px;
+    }
+
+    /* Контейнер */
+    .container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Заменить большие шрифты на маленькие */
+    .container h1 {
+        font-size: 1.5em;
+    }
+
+    .container p {
+        font-size: 1em;
+        margin: 10px 0;
+    }
+
+    /* Изображения в контейнере */
+    .container img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    /* Адаптация для альбома */
+    .album {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .album .img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Блок с причинами - сделать в колонку */
+    .benifit, .benifits {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 350px;
+        padding: 15px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.2em;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+
+    /* Блок с курсами */
+    .course, .courses {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .tablecourse {
+        width: 100%;
+        margin: 20px 0;
+        border-collapse: collapse;
+    }
+
+    .tablecourse th, .tablecourse td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    /* Футер */
+    .footer {
+        width: 100%;
+        padding: 0px 0px;
+        text-align: center;
+        background-color: #333;
+        color: white;
+        box-sizing: border-box;
+    }
+
+    .footer table {
+        width: 100%;
+        font-size: 0.9em;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer td {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .footer img {
+        max-width: 100px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .footer .text {
+        font-size: 0.8em;
+    }
+}
+
+/* Адаптация для экрана до 425px */
+@media screen and (max-width: 426px) {
+
+    /* Бургер меню */
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links li {
+        padding: 10px 20px;
+    }
+
+    /* Контейнер */
+    .container {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Заменить большие шрифты на маленькие */
+    .container h1 {
+        font-size: 1.3em;
+    }
+
+    .container p {
+        font-size: 0.9em;
+        margin: 8px 0;
+    }
+
+    /* Изображения в контейнере */
+    .container img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 15px;
+    }
+
+    /* Адаптация для альбома */
+    .album {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .album .img {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Блок с причинами */
+    .benifit, .benifits {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 300px;
+        padding: 12px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.1em;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+
+    /* Блок с курсами */
+    .course, .courses {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .tablecourse {
+        width: 100%;
+        margin: 15px 0;
+        border-collapse: collapse;
+    }
+
+    .tablecourse th, .tablecourse td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    /* Футер */
+    .footer {
+        width: 100%;
+        padding: 10px 5px;
+        text-align: center;
+        background-color: #333;
+        color: white;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .footer table {
+        width: 100%;
+        font-size: 0.85em;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .footer img {
+        max-width: 80px;
+        height: auto;
+        margin-bottom: 8px;
+    }
+
+    .footer .text {
+        font-size: 0.75em;
+    }
+    .footer {
+        padding: 0px !important; /* Меньше отступов в футере */
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    /* Меньше шрифт для текста в футере */
+    .footer table td {
+        font-size: 8px !important;
+    }
+}

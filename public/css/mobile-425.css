@@ -1,0 +1,73 @@
+/* Общие стили для всего контента */
+body {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Адаптация для курса */
+.course {
+    width: 400px !important; 
+}
+
+/* Стили для таблицы в блоке .courses */
+.courses {
+    width: 100% !important; 
+    box-sizing: border-box;
+    padding: 10px !important;
+}
+
+/* Адаптация таблицы в футере */
+.footer table {
+    font-size: 8px !important; 
+}
+
+/* Уменьшаем размер изображений в блоке .album */
+.album .img {
+    width: 100% !important; 
+    height: auto !important; 
+}
+
+/* Стилевые изменения для блоков .benifit */
+.benifit {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+/* Изменение текста в блоках .intro1 */
+.intro1 {
+    font-size: 14px !important; 
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+/* Корректировка для навигации */
+.nav-links {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+}
+
+.nav-links ul {
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 10px !important; 
+}
+
+/* Блоки с меню */
+header li {
+    padding: 5px 10px !important;
+    font-size: 14px !important; 
+    text-align: center !important;
+}
+
+/* Для футера, чтобы он не вылезал за границы */
+.footer {
+    padding: 20px !important; 
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* Уменьшаем шрифт для текста в футере */
+.footer table td {
+    font-size: 8px !important;
+}
